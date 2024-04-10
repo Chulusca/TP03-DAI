@@ -4,19 +4,19 @@ la funciones sumar y multiplicar */
 const PI = 3.14;
 
 function sumar(x, y) {
-    return x+y;
+    return parseInt(x)+parseInt(y);
 }
 
 const multiplicar = (a, b) => {
-    return a*b;
+    return parseInt(a)*parseInt(b);
 };
 
 function dividir(divisor, dividendo){
-    return divisor/dividendo;
+    return parseInt(divisor)/parseInt(dividendo);
 };
 
 function restar(a, b){
-    return a-b;
+    return parseInt(a)-parseInt(b);
 };
 
 // Exporto todo lo que yo quiero exponer del módulo hacia el exterior.

@@ -1,5 +1,6 @@
 import express from "express"; // hacer npm i express
 import cors from "cors"; // hacer npm i cors
+import  {sumar, restar, dividir, multiplicar} from "src/modules/matematica.js"
 
 const app = express();
 const port = 3000;
@@ -31,6 +32,11 @@ app.get('/validarfecha/:ano/:mes/:dia', (req, res) => {
     else{
         res.status(400).send();
     }
+})
+
+app.get('/matematica/sumar', (req, res) => {
+    let suma = sumar(req.query.n1, req.query.n2);
+    res.status(200).send(suma);
 })
 
 // Inicio el server.
