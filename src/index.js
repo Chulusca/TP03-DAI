@@ -37,7 +37,7 @@ app.get('/validarfecha/:ano/:mes/:dia', (req, res) => {
     
     let fecha = new Date(req.params.ano, req.params.mes - 1, req.params.dia);
     if(!isNaN(fecha)){
-        res.status(200).send();
+        res.status(200).send(fecha);
     }
     else{
         res.status(400).send();
