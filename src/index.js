@@ -34,6 +34,8 @@ app.get('/validarfecha/:ano/:mes/:dia', (req, res) => {
     }
 })
 
+//EndPoints que utilizan matematica.js
+
 app.get('/matematica/sumar', (req, res) => {
     let suma = sumar(req.query.n1, req.query.n2);
     res.status(200).send(suma.toString());
@@ -58,6 +60,9 @@ app.get('/matematica/dividir', (req, res) => {
         res.status(200).send(cociente.toString());
     }
 })
+
+//EndPoints que usan el modulo OMBDWrapper.js
+
 
 
 // Inicio el server.
