@@ -66,7 +66,7 @@ app.get('/matematica/dividir', (req, res) => {
 
 app.get('/ombd/searchbypage', async (req, res) => {
     let returnObject = await OMDBSearchByPage(req.query.search, req.query.p);
-    res.status(200).send(returnObject.datos);
+    res.status(200).send(returnObject);
 })
 
 
