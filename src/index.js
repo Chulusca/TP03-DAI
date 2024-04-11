@@ -36,8 +36,29 @@ app.get('/validarfecha/:ano/:mes/:dia', (req, res) => {
 
 app.get('/matematica/sumar', (req, res) => {
     let suma = sumar(req.query.n1, req.query.n2);
-     
+    res.status(200).send(suma.toString());
 })
+
+app.get('/matematica/restar', (req, res) => {
+    let resta = restar(req.query.n1, req.query.n2);
+    res.status(200).send(resta.toString());
+})
+
+app.get('/matematica/multiplicar', (req, res) => {
+    let producto = multiplicar(req.query.n1, req.query.n2);
+    res.status(200).send(producto.toString());
+})
+
+app.get('/matematica/dividir', (req, res) => {
+    let cociente = dividir(req.query.n1, req.query.n2);
+    if(req.query.n2 == 0){
+        res.status(400).send("El divisor no puede ser 0");
+    }
+    else{
+        res.status(200).send(cociente.toString());
+    }
+})
+
 
 // Inicio el server.
 app.listen(port, () => {
