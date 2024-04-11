@@ -1,6 +1,7 @@
 import express from "express"; // hacer npm i express
 import cors from "cors"; // hacer npm i cors
 import  {sumar, restar, dividir, multiplicar} from './modules/matematica.js'
+import { OMDBGetByImdbID, OMDBSearchByPage, OMDBSearchComplete } from "./modules/OMDBWrapper.js";
 
 const app = express();
 const port = 3000;
@@ -62,6 +63,22 @@ app.get('/matematica/dividir', (req, res) => {
 })
 
 //EndPoints que usan el modulo OMBDWrapper.js
+
+app.get('/ombd/searchbypage', async (req, res) => {
+    let returnObject = await OMDBSearchByPage(req.query.search, req.query.p);
+    res.status(200).send(returnObject);
+})
+
+app.get('/ombd/searchcomplete', async (req, res) => {
+    let returnObject = await OMDBSearchComplete(req.query.search);
+    res.status(200).send(returnObject);
+})
+
+app.get('/ombd/getombdid', async (req, res) => {
+    let returnObject = await OMDBGetByImdbID(req.query.imbdID);
+    res.status(200).send(returnObject);
+})
+
 
 
 
